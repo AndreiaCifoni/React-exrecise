@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { render } from "react-dom";
 
-const Form = () => {
+const Form = ({ onSubmit }) => {
   const [num, setNum] = useState("");
 
   const onInputChange = (event) => {
     setNum(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(event);
+    await onSubmit(num);
   };
 
   return (
